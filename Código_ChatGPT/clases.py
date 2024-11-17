@@ -82,4 +82,4 @@ class Tablero:
         return self.disparar(x, y)
 
     def imprimir_tablero(self):
-        print("\n".join(" ".join(row) for row in self.tablero_oculto))
+        print("\\n".join(" ".join(row) for row in self.tablero_oculto))

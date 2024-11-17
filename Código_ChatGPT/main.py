@@ -9,8 +9,8 @@ def main():
     dificultad = seleccionar_dificultad()
 
     # Inicializar tableros
-    tablero_jugador = Tablero(id_jugador="Jugador", dificultad=dificultad)
-    tablero_maquina = Tablero(id_jugador="Máquina", dificultad=dificultad)
+    tablero_jugador = Tablero(id_jugador = "Jugador", dificultad = dificultad)
+    tablero_maquina = Tablero(id_jugador = "Máquina", dificultad = dificultad)
 
     tablero_jugador.colocar_barcos()
     tablero_maquina.colocar_barcos()
