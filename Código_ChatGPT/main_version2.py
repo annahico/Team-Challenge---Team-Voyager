@@ -1,5 +1,5 @@
 
-from clases_version2 import Tablero
+from clases_version3 import Tablero
 from funciones_version2 import (
     mostrar_instrucciones,
     seleccionar_dificultad,

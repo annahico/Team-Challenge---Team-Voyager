@@ -77,8 +77,8 @@ class Tablero:
         for barco in self.barcos:
             while True:
                 orientacion = random.choice(["N", "S", "E", "O"])
-                fila = random.randint(self.dimensiones[0] - 1)
-                columna = random.randint(self.dimensiones[1]- 1)
+                fila = random.randint(0, self.dimensiones[0] - 1)
+                columna = random.randint(0, self.dimensiones[1]- 1)
                 if self.colocar_barco(barco, fila, columna, orientacion):
                     break
 
@@ -104,13 +104,13 @@ class Tablero:
                 coordenadas.append((fila - i, columna))
 
             elif orientacion == "E": # ESTE
-                if columna + i > self.dimensiones[1]:
+                if columna + i > self.dimensiones[1] - 1:
                     return False
                 
                 coordenadas.append((fila, columna + i))
 
             elif orientacion == "S": # SUR
-                if fila + i > self.dimensiones[0]:
+                if fila + i > self.dimensiones[0] - 1:
                     return False  
                 
                 coordenadas.append((fila + i, columna))
@@ -120,7 +120,7 @@ class Tablero:
                     return False
                 
                 coordenadas.append((fila, columna - i))
-                
+
         if any(self.tablero_oculto[x, y] == SIMBOLOS["barco"] for x, y in coordenadas):
             return False
         
