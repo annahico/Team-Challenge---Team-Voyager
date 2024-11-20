@@ -76,7 +76,7 @@ class Tablero:
         """
         for barco in self.barcos:
             while True:
-                orientacion = random.choice(["H", "V"])
+                orientacion = random.choice(["N", "S", "E", "O"])
                 fila = random.randint(0, self.dimensiones[0] - 1)
                 columna = random.randint(0, self.dimensiones[1] - 1)
                 if self.colocar_barco(barco, fila, columna, orientacion):
@@ -97,62 +97,106 @@ class Tablero:
         """
         coordenadas = []
         for i in range(barco.eslora):
-            if orientacion == "H":
-                if columna + barco.eslora > self.dimensiones[1]:
+            if orientacion == "N": # NORTE
+                if fila - i < 0:
                     return False
+                
+                coordenadas.append((fila - i, columna))
+
+            elif orientacion == "E": # ESTE
+                if columna + i > self.dimensiones[1] - 1:
+                    return False
+                
                 coordenadas.append((fila, columna + i))
-            elif orientacion == "V":
-                if fila + barco.eslora > self.dimensiones[0]:
-                    return False
+
+            elif orientacion == "S": # SUR
+                if fila + i > self.dimensiones[0] - 1:
+                    return False  
+                
                 coordenadas.append((fila + i, columna))
+            
+            elif orientacion == "O": # OESTE
+                if columna - i < 0:
+                    return False
+                
+                coordenadas.append((fila, columna - i))
+
         if any(self.tablero_oculto[x, y] == SIMBOLOS["barco"] for x, y in coordenadas):
             return False
+        
         for x, y in coordenadas:
             self.tablero_oculto[x, y] = SIMBOLOS["barco"]
+
         barco.coordenadas = coordenadas
+
         return True
 
     def disparar(self, x, y):
         """
-        
+         Disparo que realiza el jugador
+
+        Args:
+            x (int): La coordenada x del disparo.
+            y (int): La coordenada y del disparo.
+
+        Returns:
+            str: El resultado del disparo, puede ser "agua", "impacto" o "hundido".
         """
         if self.tablero_visible[x, y] != SIMBOLOS["agua"]:
             print("Ya disparaste aquí.")
+
             return "repetido"
+        
         if self.tablero_oculto[x, y] == SIMBOLOS["barco"]:
             self.tablero_visible[x, y] = SIMBOLOS["impacto_barco"]
             self.tablero_oculto[x, y] = SIMBOLOS["impacto_barco"]
+
             for barco in self.barcos:
                 if (x, y) in barco.coordenadas:
                     barco.registrar_impacto()
                     self.vidas -= 1
+
                     if barco.esta_hundido():
                         return "hundido"
+                    
                     return "impacto"
         else:
             self.tablero_visible[x, y] = SIMBOLOS["impacto_agua"]
+
             return "agua"
 
     def disparar_aleatorio(self):
         """
+        Método de disparo de la máquina que dependerá
+        de la dificultad establecida.
+
+        Args:
+            dificultad (str): La dificultad del juego, puede ser "facil", "medio" o "dificil".
         
+        Returns:
+            None
         """
         while True:
             x = random.randint(0, self.dimensiones[0] - 1)
             y = random.randint(0, self.dimensiones[1] - 1)
+
             if self.tablero_visible[x, y] == SIMBOLOS["agua"]:
                 resultado = self.disparar(x, y)
+
                 if resultado == "agua":
                     print(f"La máquina disparó a ({x}, {y}) y falló.")
+
                 elif resultado == "impacto":
                     print(f"La máquina disparó a ({x}, {y}) y acertó.")
+
                 elif resultado == "hundido":
                     print(f"La máquina disparó a ({x}, {y}) y hundió un barco.")
+
                 break
 
     def imprimir_tablero(self):
         """
-        
+        Muestra el estado de los tableros al jugador.
         """
         for fila in self.tablero_visible:
             print(" ".join(fila))

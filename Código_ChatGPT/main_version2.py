@@ -1,5 +1,5 @@
 
-from clases_version3 import Tablero
+from clases_version2 import Tablero
 from funciones_version2 import (
     mostrar_instrucciones,
     seleccionar_dificultad,
@@ -31,15 +31,19 @@ def main():
         mostrar_estado(tablero_jugador, tablero_maquina)
         print("\n Es tu turno:")
         turno_jugador(tablero_maquina)
+
         if verificar_ganador(tablero_jugador, tablero_maquina):
             juego_activo = False
+
             break
         
         print("\\nTurno de la máquina:")
         tablero_jugador.disparar_aleatorio()
+
         if verificar_ganador(tablero_jugador, tablero_maquina):
             juego_activo = False
+
             break
 
-if __name__ == "__main__":
+if __name__ == "__main__": # Esto asegura que el programa se ejecute solo si se ejecuta este archivo directamente, y no cuando es importado
     main()
