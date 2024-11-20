@@ -22,7 +22,7 @@ def main():
     mostrar_instrucciones()
     dificultad = seleccionar_dificultad()
     tablero_jugador = Tablero(id_jugador="Jugador", dimensiones=DIMENSIONES, barcos=BARCOS)
-    tablero_maquina = Tablero(id_jugador="Máquina", dimensiones=DIMENSIONES, barcos=BARCOS, es_maquina=True)
+    tablero_maquina = Tablero(id_jugador="Máquina", dimensiones=DIMENSIONES, barcos=BARCOS, es_maquina = True)
     tablero_jugador.inicializar_tablero()
     tablero_maquina.inicializar_tablero()
     juego_activo = True
@@ -34,6 +34,7 @@ def main():
         if verificar_ganador(tablero_jugador, tablero_maquina):
             juego_activo = False
             break
+        
         print("\\nTurno de la máquina:")
         tablero_jugador.disparar_aleatorio()
         if verificar_ganador(tablero_jugador, tablero_maquina):

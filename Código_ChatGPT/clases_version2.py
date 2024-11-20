@@ -36,7 +36,7 @@ class Barco:
         return self.impactos >= self.eslora
 
 class Tablero:
-    def __init__(self, id_jugador, dimensiones, barcos, es_maquina=False):
+    def __init__(self, id_jugador, dimensiones, barcos, es_maquina = False):
         """
         Inicializa un objeto de la clase Tablero.
 
