@@ -1,7 +1,8 @@
 import random
 
 import numpy as np
-from variables_version2 import DIMENSIONES, SIMBOLOS
+
+from variables import DIMENSIONES, SIMBOLOS
 
 
 class Barco:

@@ -1,9 +1,9 @@
 
-from clases_version2 import Tablero
-from funciones_version2 import (mostrar_estado, mostrar_instrucciones,
-                                seleccionar_dificultad, turno_jugador,
-                                verificar_ganador)
-from variables_version2 import BARCOS, DIMENSIONES
+from clases import Tablero
+from funciones import (mostrar_estado, mostrar_instrucciones,
+                       seleccionar_dificultad, turno_jugador,
+                       verificar_ganador)
+from variables import BARCOS, DIMENSIONES
 
 
 def main():
