@@ -29,7 +29,7 @@ def main():
 
     while juego_activo:
         mostrar_estado(tablero_jugador, tablero_maquina)
-        print("\\nEs tu turno:")
+        print("\n Es tu turno:")
         turno_jugador(tablero_maquina)
         if verificar_ganador(tablero_jugador, tablero_maquina):
             juego_activo = False

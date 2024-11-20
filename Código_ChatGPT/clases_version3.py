@@ -133,28 +133,47 @@ class Tablero:
 
     def disparar(self, x, y):
         """
-        
+        Disparo que realiza el jugador
+
+        Args:
+            x (int): La coordenada x del disparo.
+            y (int): La coordenada y del disparo.
+
+        Returns:
+            str: El resultado del disparo, puede ser "agua", "impacto" o "hundido".
         """
         if self.tablero_visible[x, y] != SIMBOLOS["agua"]:
             print("Ya disparaste aquí.")
             return "repetido"
+        
         if self.tablero_oculto[x, y] == SIMBOLOS["barco"]:
             self.tablero_visible[x, y] = SIMBOLOS["impacto_barco"]
             self.tablero_oculto[x, y] = SIMBOLOS["impacto_barco"]
+
             for barco in self.barcos:
                 if (x, y) in barco.coordenadas:
                     barco.registrar_impacto()
                     self.vidas -= 1
+
                     if barco.esta_hundido():
                         return "hundido"
+                    
                     return "impacto"
+                
         else:
             self.tablero_visible[x, y] = SIMBOLOS["impacto_agua"]
             return "agua"
 
     def disparar_aleatorio(self):
         """
+        Método de disparo de la máquina que dependerá
+        de la dificultad establecida.
+
+        Args:
+            dificultad (str): La dificultad del juego, puede ser "facil", "medio" o "dificil".
         
+        Returns:
+            None
         """
         while True:
             x = random.randint(0, self.dimensiones[0] - 1)
