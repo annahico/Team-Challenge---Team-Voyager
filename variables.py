@@ -1,21 +1,19 @@
-# import matplotlib.pyplot as plt
-# import numpy as np
-# import pandas as pd
 
+DIMENSIONES = (10, 10)
 
-# Declarar todas las constantes del juego:
-#     dimensiones del tablero (board_size = 10)
-#     barcos y sus tamaños (ships = {"submarino": 1, "destructor":2, "fragata": 3, "portaaviones": 4})
+# Barcos: {nombre: eslora}
+BARCOS = {
+    "Portaviones": 4,
+    "Acorazado": 3,
+    "Submarino": 3,
+    "Destructor": 2,
+    "Lancha": 1
+}
 
-# simbolos del tablero:
-#     agua sin disparo (empty = ".")
-#     agua con disparo (miss = "X")
-#     barco (ship = "B")
-#     impacto (hit = "*")
-
-board_size = 10
-ships = {"submarino": 1, "destructor": 2, "fragata": 3, "portaaviones": 4}
-empty = "."
-miss = "X"
-ship = "B"
-hit = "*"
+# Símbolos del tablero
+SIMBOLOS = {
+    "agua": "~",
+    "barco": "B",
+    "impacto_agua": "o",
+    "impacto_barco": "X"
+}
