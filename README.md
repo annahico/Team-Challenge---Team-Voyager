@@ -108,7 +108,7 @@ El juego concluye cuando uno de los jugadores se queda sin barcos. El ganador se
 2. Navega a la carpeta del proyecto:
 
    ```bash
-   cd team_voyager
+   cd TEAM_VOYAGER
    ```
 
 3. Ejecuta el archivo principal:
