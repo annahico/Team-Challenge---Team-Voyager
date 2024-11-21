@@ -102,7 +102,7 @@ El juego concluye cuando uno de los jugadores se queda sin barcos. El ganador se
 1. Clona este repositorio en tu máquina local:
 
    ```bash
-   git clone <url-del-repositorio>
+   git clone https://github.com/annahico/Team-Challenge---Team-Voyager
    ```
 
 2. Navega a la carpeta del proyecto:
