@@ -28,10 +28,8 @@ class Barco:
     def esta_hundido(self):
         """
         Verifica si el barco ha sido hundido.
-
-        Un barco se considera hundido si ha recibido tantos impactos
-        como su eslora. En ese caso, regresa True.
-
+        Un barco se considera hundido si ha recibido tantos impactos como su eslora.
+        En ese caso, regresa True.
         Returns:
             bool: True si el barco ha sido hundido, False de lo contrario.
         """

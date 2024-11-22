@@ -26,12 +26,12 @@ def main():
 
     while juego_activo:
         mostrar_estado(tablero_jugador, tablero_maquina)
-        print("\n Es tu turno:")
+        print("Es tu turno:")
         turno_jugador(tablero_maquina)
         if verificar_ganador(tablero_jugador, tablero_maquina):
             juego_activo = False
             break
-        print("\\nTurno de la máquina:")
+        print("Turno de la máquina:")
         tablero_jugador.disparar_aleatorio()
         if verificar_ganador(tablero_jugador, tablero_maquina):
             juego_activo = False

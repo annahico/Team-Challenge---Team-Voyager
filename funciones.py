@@ -32,7 +32,7 @@ def seleccionar_dificultad():
         int: Un número entre 1 y 3 que representa la dificultad seleccionada.
     """
     # Seleccionar la dificultad del juego
-    print("\\nSelecciona la dificultad del juego:")
+    print("Selecciona la dificultad del juego:")
     print("1. Fácil")
     print("2. Intermedio")
     print("3. Difícil")
@@ -75,9 +75,9 @@ def mostrar_estado(tablero_jugador, tablero_maquina):
     """
     Muestra el estado de los tableros al jugador.
     """
-    print("\\nTu tablero:")
+    print("Tu tablero:")
     tablero_jugador.imprimir_tablero()
-    print("\\nTablero enemigo (impactos realizados):")
+    print("Tablero enemigo (impactos realizados):")
     tablero_maquina.imprimir_tablero()
 
 
@@ -106,9 +106,9 @@ def verificar_ganador(tablero_jugador, tablero_maquina):
     Verifica si hay un ganador en el juego.
     """
     if tablero_jugador.vidas == 0:
-        print("\\n¡La máquina ha ganado! Todos tus barcos han sido hundidos.")
+        print("¡La máquina ha ganado! Todos tus barcos han sido hundidos.")
         return True
     elif tablero_maquina.vidas == 0:
-        print("\\n¡Felicidades! Has ganado. Todos los barcos enemigos han sido hundidos.")
+        print("¡Felicidades! Has ganado. Todos los barcos enemigos han sido hundidos.")
         return True
     return False
